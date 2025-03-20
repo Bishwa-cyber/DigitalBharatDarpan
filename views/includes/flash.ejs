@@ -1,0 +1,12 @@
+<%if(success && success.length){%>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style = "text-align: center; width : 50%;margin:0 auto;">
+        <%=success%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+<%}%>
+<%if(error && error.length){%>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" style = "text-align: center; width : 50%;margin:0 auto;color:black;font-weight: bold;">
+        <%=error%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+<%}%>

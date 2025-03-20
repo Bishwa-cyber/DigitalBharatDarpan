@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel = "icon" href = "<%=imagePath%>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #6b48ff, #ff6bcb);
+        }
+
+        .container {
+            display: flex;
+            width: 800px;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-section {
+            flex: 1;
+            background: linear-gradient(45deg, #4a90e2, #a944c1);
+            padding: 40px;
+            color: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .left-section h1 {
+            font-size: 36px;
+            margin-top: 100px;
+        }
+
+        .left-section p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .left-section::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: 20%;
+            left: -20%;
+            z-index: 0;
+        }
+
+        .website-url {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .right-section {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-section h2 {
+            font-size: 24px;
+            color: #a944c1;
+            margin-bottom: 10px;
+        }
+
+        .right-section p {
+            font-size: 14px;
+            color: #a944c1;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 2px solid #e0e0e0;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-bottom: 2px solid #4a90e2;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .remember-forgot input {
+            margin-right: 5px;
+        }
+
+        .forgot-password a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #4a90e2, #a944c1);
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .create-account a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .create-account a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <%-include("../includes/flash.ejs")%>
+    <div class="container">
+        <div class="left-section">
+            <div>
+                <h1>Welcome Page</h1>
+                <p>Sign in to your account</p>
+            </div>
+            <div class="website-url">www.codenomix.com</div>
+        </div>
+        <div class="right-section">
+            <h2>Hello !</h2>
+            <p>Good Morning</p>
+            <p>Login Your Account</p>
+        <form method = "post" novalidate class="needs-validation" action = "/user/login">
+            <div class="input-group">
+                <input type="text" placeholder="username" name = "username" required/>
+                <div class = "valid-feedback">
+                    username look's good
+                </div>
+                <div class = "invalid-feedback">
+                    username look's good
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" name = "password" required/>
+                <div class = "valid-feedback">
+                   please hide ur password
+                </div>
+                <div class = "invalid-feedback">
+                    enter correct password
+                </div>
+            </div>
+            <div class="remember-forgot">
+                <div>
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember</label>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password ?</a>
+                </div>
+            </div>
+            <button class="submit-btn">SUBMIT</button>
+        </form>
+            <div class="create-account">
+                <a href="/user/signup">Create Account</a>
+                <div class="social-login" style = "display: flex;flex-wrap: wrap;justify-content: space-evenly;margin-left: 0.5rem;margin-top:1rem;font-size: 1.5rem;">
+                    <div><a href = "/auth/google"><i class="fa-brands fa-google"></i></a></div><div><i class="fa-brands fa-facebook"></i></div><div><i class="fa-brands fa-figma"></i></div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <script src = "/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

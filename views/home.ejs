@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Data.gov.in - Discover Datasets</title>
+    <link rel="icon" href="<%=imagePath%>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Slider Styling */
+        header{
+            background-color: rgb(255, 191, 53);
+            font-weight: bold;
+            color : black;
+        }
+          /* Engagement Section */
+          .engagement-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .engagement-section h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a3c6d;
+            margin-bottom: 16px;
+        }
+
+        .engagement-section p {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        /* Grid Layout for Cards */
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Card Styling */
+        .engagement-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+            transition: box-shadow 0.3s ease;
+            border: 1px solid grey;
+        }
+
+        .engagement-card:hover {
+            box-shadow: 10px 4px 16px rgba(0, 0, 0, 0.15);
+            background-color: yellow;
+        }
+
+        .engagement-card img {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 12px;
+        }
+
+        .engagement-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .engagement-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .engagement-card ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .engagement-card ul li a {
+            color: #1a73e8;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .engagement-card ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .engagement-card ul li a::before {
+            content: "•";
+            color: #1a73e8;
+            position: absolute;
+            left: -12px;
+        }
+
+        /* Need Help? Ask Button */
+        .need-help {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #1a73e8;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .need-help:hover {
+            background-color: #1557b0;
+        }
+
+        /* Background Image (Optional) */
+        .engagement-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100%;
+            background: url('https://via.placeholder.com/300x400?text=Background+Image') no-repeat center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        /* Ensure content is above the background */
+        .engagement-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .engagement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .need-help {
+                position: static;
+                display: block;
+                margin: 20px auto 0;
+                text-align: center;
+            }
+        }
+        .d{
+            background-color: rgb(255, 255, 48);
+            position: relative;
+            left:-20px;
+        }
+        .d:hover{
+            background-color: yellow;
+        }
+        .sidebar-item{
+            font-weight: bold;
+        }
+        .category-card:hover{
+        background-color: rgb(255, 255, 255);
+        }
+    
+        .a{
+            position: relative;
+            left:-100px;
+        }
+        .b{
+            position: relative;
+            left: 340px;
+        }
+        .c{
+            height:30px;
+            width: 100px;
+            padding: 2px;
+            padding-bottom: 5px;
+            border:1px solid black;
+            border-radius: 50px;
+            background-color: blue;
+            color: antiquewhite;
+        }
+        
+        .slider {
+            position: relative;
+            right:120px;
+            overflow: hidden;
+            width: 100vw;
+            height: 300px;
+        }
+        .flex{
+            padding-top: 20px;
+            
+        }
+        
+           
+        .container{
+            margin-top: -32px;
+            position: relative;
+            left:-10px;
+        }
+        .slides {
+            display: flex;
+            height:120px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            height: 250%;
+        }
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        /* Stats Section */
+        .stats div {
+            @apply p-4 bg-white rounded-lg shadow-md text-center;
+        }
+        .trending-button {
+            @apply px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition;
+        }
+        .stats-image {
+            @apply w-48 h-auto;
+        }
+        /* Sidebar Styling */
+        .sidebar-item {
+            @apply bg-white text-gray-700 rounded-lg p-4 flex justify-between items-center shadow hover:bg-gray-100 transition;
+        }
+        .sidebar-item.active {
+            @apply bg-gradient-to-r from-yellow-400 to-orange-500 text-white;
+        }
+        /* Card Styling */
+        .category-card {
+            @apply bg-white rounded-lg shadow-lg p-4 flex flex-col items-center hover:shadow-xl transition;
+        }
+        .engagement-card {
+            @apply bg-white rounded-lg shadow-lg p-4 text-left;
+        }
+        .visualization-card {
+            @apply bg-gray-100 rounded-lg p-4 m-2 text-center hover:bg-gray-200 transition;
+        }
+        .recent-focus-card {
+            @apply bg-white rounded-lg shadow-lg overflow-hidden;
+        }
+        /* Footer Styling */
+        .footer-link {
+            @apply hover:underline;
+        }
+          /* Visualization Section */
+          .visualization-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .visualization-section h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a3c6d;
+            margin-bottom: 24px;
+        }
+
+        /* Main Layout */
+        .visualization-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            min-width: 200px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a.active {
+            background: linear-gradient(to right, #f4c430, #f57c00);
+            color: #fff;
+        }
+
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .sidebar a.active:hover {
+            background: linear-gradient(to right, #e0b028, #e06b00);
+        }
+
+        /* Visualization Cards */
+        .visualization-grid {
+            flex: 3;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+
+        .visualization-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            flex: 1;
+            min-width: 300px;
+            transition: box-shadow 0.3s ease;
+        }
+        .visualization-card:hover{
+            background-color: yellow;
+        }
+
+        .visualization-card:hover {
+            box-shadow: 10 14px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .visualization-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .visualization-card p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* Need Help? Ask Button */
+       
+        .need-help:hover {
+            background-color: #1557b0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .visualization-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                margin-bottom: 20px;
+            }
+
+            .visualization-grid {
+                flex-direction: column;
+            }
+
+            .visualization-card {
+                min-width: 100%;
+            }
+
+            .need-help {
+                position: static;
+                display: block;
+                margin: 20px auto 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+    <!-- Header -->
+    <header class="shadow-lg">
+        <div class="container mx-auto flex items-center ">
+            <div class="flex">
+                <div>
+                    <p class="text-lg a font-semibold">Digital Bharat Darpan</p>
+                    <p class="text-sm a">Open Government Data (OGD) Platform India</p>
+                </div>
+            </div>
+            <nav class="flex space-x-6">
+                <a class="b hover:underline hover:text-yellow-300 transition duration-300" href="#">HOME</a>
+                <a class="b hover:underline hover:text-yellow-300 transition duration-300" href="#">CATALOG</a>
+                <a class="b hover:underline hover:text-yellow-300 transition duration-300" href="/sector">SECTOR</a>
+                <a class="b hover:underline hover:text-yellow-300 transition duration-300" href="#">METRICS</a>
+                <% if (!currentUser) { %>
+                    <a class="b hover:underline hover:text-yellow-300 transition duration-300" href="/user/signup">REGISTER</a>
+                    <a class="b hover:underline hover:text-yellow-300 transition duration-300" href="/user/login">LOGIN</a>
+                <% } %>
+                <% if (currentUser) { %>
+                    <a class="b hover:underline hover:text-yellow-300 transition duration-300" href="/user/logout">LOGOUT</a>
+                <% } %>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Flash Messages -->
+    <%- include("./includes/flash.ejs") %>
+
+    <!-- Sliding Image Gallery Section -->
+    <div class="container mx-auto py-8">
+        <div class="slider relative bg-orange-500">
+            <div class="slides" id="slides">
+                <div class="slide relative">
+                    <img alt="banner" class="w-full h-full object-cover" src="<%=eshram1%>"/>
+                </div>
+                <div class="slide relative">
+                    <img alt="banner" class="w-full h-full object-cover" src="<%=company%>"/>
+                </div>
+                <div class="slide relative">
+                    <img alt="banner" class="w-full h-full object-cover" src="<%=eshram1%>"/>
+                </div>
+                <div class="slide relative">
+                    <img alt="banner" class="w-full h-full object-cover" src="<%=company%>"/>
+                </div>
+                <div class="slide relative">
+                    <img alt="banner" class="w-full h-full object-cover" src="<%=KCC_Banner%>"/>
+                </div>
+                <div class="slide relative">
+                    <img alt="banner" class="w-full h-full object-cover" src="<%=eshram1%>"/>
+                </div>
+            </div>
+            <button id="prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-700 text-white p-2 rounded-full hover:bg-blue-800">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-700 text-white p-2 rounded-full hover:bg-blue-800">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <section class="bg-white py-8">
+        <div class="container mx-auto">
+            <div class="bg-purple-200 p-6 rounded-lg shadow-lg">
+                <div class="flex items-center justify-center mb-4">
+                    <input id="searchInput" class="p-3 rounded-l-lg w-full max-w-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Search Datasets" type="text"/>
+                    <button id="searchButton" class="bg-yellow-400 text-white p-3 rounded-r-lg hover:bg-yellow-500 transition">Search</button>
+                </div>
+                <div class="flex justify-center space-x-4 mb-6">
+                    <button class="c trending-button" onclick="filterData('Crime')">Crime</button>
+                    <button class="c trending-button" onclick="filterData('Rainfall')">Rainfall</button>
+                    <button class="c trending-button" onclick="filterData('Pincode')">Pincode</button>
+                    <button class="c trending-button" onclick="filterData('Population')">Population</button>
+                    <button class="c trending-button" onclick="filterData('Market')">Market</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-4 items-center">
+                    <div class="col-span-1 flex justify-center">
+                        <img alt="Analytics icon" class="stats-image" src="<%=search%>"/>
+                    </div>
+                    <div class="stats">
+                        <p class="text-2xl font-bold text-blue-800">482,974</p>
+                        <p class="text-sm text-gray-600">Analytics</p>
+                    </div>
+                    <div class="stats">
+                        <p class="text-2xl font-bold text-blue-800">12,444</p>
+                        <p class="text-sm text-gray-600">Resources</p>
+                    </div>
+                    <div class="stats">
+                        <p class="text-2xl font-bold text-blue-800">10.71 M</p>
+                        <p class="text-sm text-gray-600">Times Downloaded</p>
+                    </div>
+                    <div class="stats">
+                        <p class="text-2xl font-bold text-blue-800">37.45 M</p>
+                        <p class="text-sm text-gray-600">APIs</p>
+                    </div>
+                    <div class="stats">
+                        <p class="text-2xl font-bold text-blue-800">624</p>
+                        <p class="text-sm text-gray-600">Chief Data Officers</p>
+                        <a href="#" class="text-blue-600 text-sm hover:underline">Need Help? Ask</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discover Datasets Section -->
+    <div class="bg-blue-100 py-8">
+        <div class="container mx-auto">
+            <h1 class="text-center text-2xl font-semibold mb-6">Discover Datasets By</h1>
+            <div class="flex flex-col md:flex-row justify-center items-start md:items-center space-y-4 md:space-y-0 md:space-x-8">
+                <div class="d rounded-lg shadow-lg p-4 w-full md:w-1/4">
+                    <ul class="space-y-4">
+                        <li class="sidebar-item active">
+                            
+                            <span>Sector</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                        <hr>
+                        <li class="sidebar-item">
+                            <span>Groups</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                        <hr>
+                        <li class="sidebar-item">
+                            <span>Central</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                        <hr>
+                        <li class="sidebar-item">
+                            <span>State</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                        <hr>
+                        <li class="sidebar-item">
+                            <span>APIs</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                        <hr>
+                        <li class="sidebar-item">
+                            <span>All Datasets</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full md:w-3/4">
+                    <div class="category-card">
+                        <img alt="Economy icon" class="mb-2" src="<%=economy%>"/>
+                        <span>Economy</span>
+                    </div>
+                    <div class="category-card">
+                        <img alt="Education icon" class="mb-2" src="<%=education%>"/>
+                        <span>Education</span>
+                    </div>
+                    <div class="category-card">
+                        <img alt="Environment and Forest icon" class="mb-2" src="<%=Environment%>"/>
+                        <span>Environment and Forest</span>
+                    </div>
+                    <div class="category-card">
+                        <img alt="Health and Family welfare icon" class="mb-2" src="<%=Science%>"/>
+                        <span>Health and Family welfare</span>
+                    </div>
+                    <div class="category-card">
+                        <img alt="Information and Communications icon" class="mb-2" src="<%=Labour%>"/>
+                        <span>Information and Communications</span>
+                    </div>
+                    <div class="category-card">
+                        <img alt="Labour and Employment icon" class="mb-2" src="https://placehold.co/50x50"/>
+                        <span>Labour and Employment</span>
+                    </div>
+                    <div class="category-card">
+                        <img alt="Science and Technology icon" class="mb-2" src="https://placehold.co/50x50"/>
+                        <span>Science and Technology</span>
+                    </div>
+                    <div class="category-card">
+                        <span>View More</span>
+                        <i class="fas fa-arrow-right mt-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Engagement Section -->
+    <div class="engagement-section">
+        <h2>Engagement Through Data</h2>
+        <p style = "color: black;">OGD Community Portal will help you to brainstorm ideas based on your interest. Keep visiting the section for Visualizations, Blog Posts, Infographics and updates in the Community section. You can also contribute your Visualizations, Blog Posts and Infographics.</p>
+        <div class="engagement-grid">
+            <div class="engagement-card">
+                <img alt="Community icon" src="<%=community%>"/>
+                <h3>COMMUNITY</h3>
+                <ul>
+                    <li><a href="#">Smartcities Community</a></li>
+                    <li><a href="#">Tamil Nadu Community</a></li>
+                    <li><a href="#">Data Gov Community</a></li>
+                </ul>
+            </div>
+            <div class="engagement-card">
+                <img alt="Apps icon" src="<%=app%>"/>
+                <h3>APPS</h3>
+                <ul>
+                    <li><a href="#">Aadhaar Permanent Enrolment Centres (PEC's) in Tamil Nadu State</a></li>
+                </ul>
+            </div>
+            <div class="engagement-card">
+                <img alt="Infographics icon" src="<%=info%>"/>
+                <h3>INFOGRAPHICS</h3>
+                <ul>
+                    <li><a href="#">Comprehensive Analysis of the Mahatma Gandhi National Rural Employment</a></li>
+                </ul>
+            </div>
+            <div class="engagement-card">
+                <img alt="Blogs icon" src="<%=blog%>"/>
+                <h3>BLOGS</h3>
+                <ul>
+                    <li><a href="#">Analysis of the First Census of Water Bodies in Uttarakhand</a></li>
+                </ul>
+            </div>
+            <div class="engagement-card">
+                <img alt="High Value Datasets icon" src="<%=high%>"/>
+                <h3>HIGH VALUE DATASETS</h3>
+                <ul>
+                    <li><a href="#">Summary of road statistics of Karnataka for the year 2024-2025</a></li>
+                </ul>
+            </div>
+           
+        </div>
+        <!-- Need Help? Ask Button -->
+       
+    </div>
+    <!-- Visualization Section -->
+    <div class="visualization-section" style="background-color: lightblue;">
+        <h2>Visualization</h2>
+        <div class="visualization-container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#" class="active">Latest Visualization <i class="fas fa-chevron-right"></i></a></li>
+                    <li><a href="#">Top Viewed Visualization <i class="fas fa-chevron-right"></i></a></li>
+                    <li><a href="#">Create Visualization <i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+
+            <!-- Visualization Cards -->
+            <div class="visualization-grid" >
+                <div class="visualization-card">
+                    <img alt="Chart 1" src="<%=first%>"/>
+                    <p>State/UT-wise Details of Road Length Completed under Pradhan Mantri Gram Sadak V...</p>
+                </div>
+                <div class="visualization-card">
+                    <img alt="Chart 2" src="<%=second%>"/>
+                    <p>State/UT-wise Number of Candidates Trained and Settled under Rural Self Employ...</p>
+                </div>
+                <div class="visualization-card">
+                    <img alt="Chart 3" src="<%=third%>"/>
+                    <p>State/UT-wise Details of Funds Released and Utilized under Paramparagat Krishi V...</p>
+                </div>
+                <div class="visualization-card">
+                    <img alt="Chart 3" src="<%=first%>"/>
+                    <p>State/UT-wise Details of Funds Released and Utilized under Paramparagat Krishi V...</p>
+                </div>
+
+    
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-white py-4" style="margin-top: -25px;">
+        
+      
+        <div class="bg-yellow-500 py-6">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 text-white">
+                <div>
+                    <h3 class="font-semibold mb-2" style="margin-top: 50px;">Useful Links/Support</h3>
+                    <ul style="margin-top: 10px;">
+                        <li><a class="footer-link" href="#">About Portal</a></li>
+                        <li><a class="footer-link" href="#">Terms of Use</a></li>
+                        <li><a class="footer-link" href="#">Policies</a></li>
+                        <li><a class="footer-link" href="#">Accessibility Statement</a></li>
+                        <li><a class="footer-link" href="#">GODL</a></li>
+                        <li><a class="footer-link" href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2" style="margin-top: 50px;">Connect with us</h3>
+                    <ul>
+                        <li><a class="footer-link" href="#">Chief Data Officers(CDOs)</a></li>
+                        <li><a class="footer-link" href="#">Link To Us</a></li>
+                        <li><a class="footer-link" href="#">Newsletters</a></li>
+                        <li><a class="footer-link" href="#">Sitemap</a></li>
+                        <li><a class="footer-link" href="#">Help</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p style="margin-top: 50px;">This Platform is designed, developed and hosted by National Informatics Centre (NIC), Ministry of Electronics & Information Technology, Government of India. The content published on data.gov.in are owned by the respective Ministry/State/Department/Organization licensed under the Government Open Data License - India</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-100 py-4"style="margin-top: 20px;font-weight:bold;color:black;">
+            <div class="container mx-auto text-center text-gray-700">
+                <p>© Digital Bharat Darpan</p>
+                <p>All rights reserved except published datasets/resources and metadata.</p>
+                <p>Last updated 19/03/2025 - 11:32:52</p>
+            </div>
+        </div>
+        <div class="fixed bottom-4 right-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center space-x-2 hover:bg-blue-600">
+                <i class="fas fa-question-circle"></i>
+                <span>Need Help? Ask</span>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Slider Script -->
+    <script>
+        const slides = document.getElementById('slides');
+        const slideCount = slides.children.length;
+        let currentIndex = 0;
+
+        function updateSlidePosition() {
+            const offset = -currentIndex * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlidePosition();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateSlidePosition();
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlidePosition();
+        }, 3000);
+    </script>
+
+    <!-- Search Script -->
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const query = document.getElementById('searchInput').value;
+            alert('Searching for: ' + query);
+        });
+
+        function filterData(category) {
+            alert('Filtering data for: ' + category);
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
