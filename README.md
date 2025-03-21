@@ -16,7 +16,6 @@ This project is a comprehensive financial data dashboard that aggregates real-ti
 - Provides automated 📢 alerts and insights based on trends and financial data patterns.
 
 ### 3. 🔮 Predictive Analysis and Forecasting
-- Forecasting models built using **📉 ARIMA**, **🔁 LSTM**, and other machine learning techniques to predict future trends.
 - Predictive analysis for **📈 GDP growth**, **📊 expenditure**, **💵 income**, and other financial metrics.
 - **🧐 Scenario Planning and Analysis** to explore different financial outcomes based on user-defined variables.
 
