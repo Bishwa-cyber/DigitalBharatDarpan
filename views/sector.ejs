@@ -35,10 +35,29 @@
   <!-- Centered Search Bar with Buttons -->
   <div class="container mx-auto mt-4">
     <div class="flex justify-center items-center space-x-4">
-      <input id="sectorSearch" class="w-1/2 p-2 border rounded-md" placeholder="Search Sector" type="text"/>
+       <form method = "get" action = "/search">
+        <select name = "year">
+            <option selected>Year</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+        </select>
+        <select name = "state">
+            <option value ="selected">State</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Andhra pradesh">Andhra pradesh</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+        </select>
       <button id="sectorSearchBtn" class="bg-yellow-500 text-white px-4 py-2 rounded-md">
         Search
       </button>
+       </form>
       <button id="resetBtn" class="bg-gray-200 text-gray-600 px-4 py-2 rounded-md">
         Reset
       </button>
@@ -80,44 +99,48 @@
     Last Updated: 20 Mar 2025 8:03 AM
    </p>
   </div>
-  <div class="container mx-auto mt-4">
-   <p class="text-gray-600">
-    1 - 12 of 36 Sector(s)
-   </p>
-   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-    <div class="bg-white p-4 rounded-md shadow-md">
-     <img alt="Health and Family welfare" class="mx-auto" src="<%=health%>"/>
-     <h2 class="text-center text-lg font-bold mt-2">
-      Health and Family welfare
-     </h2>
-     <p class="text-center text-blue-500 mt-2">
-      302,002 Resources in 2,086 Catalog
-     </p>
-     <div class="flex justify-around mt-4">
-      <a href="https://example.com/apis" target="_blank" class="text-center">
-        <i class="fas fa-cogs text-blue-500"></i>
-        <p>APIs</p>
-        <p>800</p>
-      </a>
-      <a href="https://example.com/visualizations" target="_blank" class="text-center">
-        <i class="fas fa-chart-line text-blue-500"></i>
-        <p>Visualizations</p>
-        <p>50</p>
-      </a>
-      <a href="https://example.com/services" target="_blank" class="text-center">
-        <i class="fas fa-concierge-bell text-blue-500"></i>
-        <p>Services</p>
-        <p>600</p>
-      </a>
-      <a href="https://example.com/blogs" target="_blank" class="text-center">
-        <i class="fas fa-blog text-blue-500"></i>
-        <p>Blogs</p>
-        <p>20</p>
-      </a>
-    </div>
-    </div>
+    <div class="container mx-auto mt-4">
+        <a href = "https://app.powerbi.com/reportEmbed?reportId=a9e25385-4223-4d39-acdb-7bcd4afda0ac&autoAuth=true&ctid=83b05d50-f86c-4d69-9551-be6a8ca9cbb4">
+        <p class="text-gray-600">
+         1 - 12 of 36 Sector(s)
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+         <div class="bg-white p-4 rounded-md shadow-md">
+          <img alt="Health and Family welfare" class="mx-auto" src="<%=health%>"/>
+          <h2 class="text-center text-lg font-bold mt-2">
+           Health and Family welfare
+          </h2>
+          <p class="text-center text-blue-500 mt-2">
+           302,002 Resources in 2,086 Catalog
+          </p>
+          <div class="flex justify-around mt-4">
+           <a href="https://example.com/apis" target="_blank" class="text-center">
+             <i class="fas fa-cogs text-blue-500"></i>
+             <p>APIs</p>
+             <p>800</p>
+           </a>
+           <a href="https://example.com/visualizations" target="_blank" class="text-center">
+             <i class="fas fa-chart-line text-blue-500"></i>
+             <p>Visualizations</p>
+             <p>50</p>
+           </a>
+           <a href="https://example.com/services" target="_blank" class="text-center">
+             <i class="fas fa-concierge-bell text-blue-500"></i>
+             <p>Services</p>
+             <p>600</p>
+           </a>
+           <a href="https://example.com/blogs" target="_blank" class="text-center">
+             <i class="fas fa-blog text-blue-500"></i>
+             <p>Blogs</p>
+             <p>20</p>
+           </a>
+         </div>
+        </a>
+         </div>
+
 
     <div class="bg-white p-4 rounded-md shadow-md">
+        <a href = "https://app.powerbi.com/reportEmbed?reportId=a9e25385-4223-4d39-acdb-7bcd4afda0ac&autoAuth=true&ctid=83b05d50-f86c-4d69-9551-be6a8ca9cbb4">
         <img alt="Education" class="mx-auto" src="<%=census%>"/>
         <h2 class="text-center text-lg font-bold mt-2">
           Education
@@ -147,15 +170,55 @@
             <p>3</p>
           </div>
         </div>
+    </a>
       </div>
 
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <img alt="Finance" class="mx-auto" src="<%=water%>"/>
+   
+        <div class="bg-white p-4 rounded-md shadow-md">
+            <a href = "https://app.powerbi.com/reportEmbed?reportId=a34f8a9a-efb5-4928-9b88-62cef24e9fe2&autoAuth=true&ctid=83b05d50-f86c-4d69-9551-be6a8ca9cbb4">
+            <img alt="Finance" class="mx-auto" src="<%=water%>"/>
+            <h2 class="text-center text-lg font-bold mt-2">
+              Finance
+            </h2>
+            <p class="text-center text-blue-500 mt-2">
+              2,727 Resources in 506 Catalog
+            </p>
+            <div class="flex justify-around mt-4">
+              <a href="https://example.com/apis" target="_blank" class="text-center">
+                <i class="fas fa-cogs text-blue-500"></i>
+                <p>APIs</p>
+                <p>800</p>
+              </a>
+              <a href="https://example.com/visualizations" target="_blank" class="text-center">
+                <i class="fas fa-chart-line text-blue-500"></i>
+                <p>Visualizations</p>
+                <p>50</p>
+              </a>
+              <a href="https://example.com/services" target="_blank" class="text-center">
+                <i class="fas fa-concierge-bell text-blue-500"></i>
+                <p>Services</p>
+                <p>600</p>
+              </a>
+              <a href="https://example.com/blogs" target="_blank" class="text-center">
+                <i class="fas fa-blog text-blue-500"></i>
+                <p>Blogs</p>
+                <p>20</p>
+              </a>
+            </div>
+        </a>
+          </div>
+    
+      
+
+    <div class="bg-white p-4 rounded-md shadow-md">
+        <a href = "https://app.powerbi.com/reportEmbed?reportId=a34f8a9a-efb5-4928-9b88-62cef24e9fe2&autoAuth=true&ctid=83b05d50-f86c-4d69-9551-be6a8ca9cbb4">
+
+        <img alt="Banking" class="mx-auto" src="<%=statics%>"/>
         <h2 class="text-center text-lg font-bold mt-2">
-          Finance
+          Banking
         </h2>
         <p class="text-center text-blue-500 mt-2">
-          2,727 Resources in 506 Catalog
+          3,500 Resources in 600 Catalog
         </p>
         <div class="flex justify-around mt-4">
           <a href="https://example.com/apis" target="_blank" class="text-center">
@@ -179,73 +242,42 @@
             <p>20</p>
           </a>
         </div>
+    </a>
       </div>
-      
-
-<div class="bg-white p-4 rounded-md shadow-md">
-  <img alt="Banking" class="mx-auto" src="<%=statics%>"/>
-  <h2 class="text-center text-lg font-bold mt-2">
-    Banking
-  </h2>
-  <p class="text-center text-blue-500 mt-2">
-    3,500 Resources in 600 Catalog
-  </p>
-  <div class="flex justify-around mt-4">
-    <a href="https://example.com/apis" target="_blank" class="text-center">
-      <i class="fas fa-cogs text-blue-500"></i>
-      <p>APIs</p>
-      <p>800</p>
-    </a>
-    <a href="https://example.com/visualizations" target="_blank" class="text-center">
-      <i class="fas fa-chart-line text-blue-500"></i>
-      <p>Visualizations</p>
-      <p>50</p>
-    </a>
-    <a href="https://example.com/services" target="_blank" class="text-center">
-      <i class="fas fa-concierge-bell text-blue-500"></i>
-      <p>Services</p>
-      <p>600</p>
-    </a>
-    <a href="https://example.com/blogs" target="_blank" class="text-center">
-      <i class="fas fa-blog text-blue-500"></i>
-      <p>Blogs</p>
-      <p>20</p>
-    </a>
-  </div>
-</div>
-
-
     <div class="bg-white p-4 rounded-md shadow-md">
-     <img alt="Census and Surveys" class="mx-auto" src="<%=education%>"/>
-     <h2 class="text-center text-lg font-bold mt-2">
-      Census and Surveys
-     </h2>
-     <p class="text-center text-blue-500 mt-2">
-      36,517 Resources in 438 Catalog
-     </p>
-     <div class="flex justify-around mt-4">
-      <a href="https://example.com/apis" target="_blank" class="text-center">
-        <i class="fas fa-cogs text-blue-500"></i>
-        <p>APIs</p>
-        <p>800</p>
-      </a>
-      <a href="https://example.com/visualizations" target="_blank" class="text-center">
-        <i class="fas fa-chart-line text-blue-500"></i>
-        <p>Visualizations</p>
-        <p>50</p>
-      </a>
-      <a href="https://example.com/services" target="_blank" class="text-center">
-        <i class="fas fa-concierge-bell text-blue-500"></i>
-        <p>Services</p>
-        <p>600</p>
-      </a>
-      <a href="https://example.com/blogs" target="_blank" class="text-center">
-        <i class="fas fa-blog text-blue-500"></i>
-        <p>Blogs</p>
-        <p>20</p>
-      </a>
-    </div>
-    </div>
+        <a href = "https://app.powerbi.com/reportEmbed?reportId=c1e72f5c-944e-49e8-9144-644b0aabb1b2&autoAuth=true&ctid=83b05d50-f86c-4d69-9551-be6a8ca9cbb4">
+        <img alt="Census and Surveys" class="mx-auto" src="<%=education%>"/>
+        <h2 class="text-center text-lg font-bold mt-2">
+         Census and Surveys
+        </h2>
+        <p class="text-center text-blue-500 mt-2">
+         36,517 Resources in 438 Catalog
+        </p>
+        <div class="flex justify-around mt-4">
+         <a href="https://example.com/apis" target="_blank" class="text-center">
+           <i class="fas fa-cogs text-blue-500"></i>
+           <p>APIs</p>
+           <p>800</p>
+         </a>
+         <a href="https://example.com/visualizations" target="_blank" class="text-center">
+           <i class="fas fa-chart-line text-blue-500"></i>
+           <p>Visualizations</p>
+           <p>50</p>
+         </a>
+         <a href="https://example.com/services" target="_blank" class="text-center">
+           <i class="fas fa-concierge-bell text-blue-500"></i>
+           <p>Services</p>
+           <p>600</p>
+         </a>
+         <a href="https://example.com/blogs" target="_blank" class="text-center">
+           <i class="fas fa-blog text-blue-500"></i>
+           <p>Blogs</p>
+           <p>20</p>
+         </a>
+       </div>
+    </a>
+       </div>
+  
     
 
     <!-- Home Affairs and Enforcement -->
