@@ -60,5 +60,6 @@ This project is a comprehensive financial data dashboard that aggregates real-ti
 ### 1. 🛠️ Clone the Repository:
 
 ```bash
-git clone https://github.com/your-username/financial-dashboard.git
+git clone https://github.com/Bishwa-cyber/DigitalBharatDarpan.git
+
 cd financial-dashboard
